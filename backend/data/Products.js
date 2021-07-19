@@ -1,0 +1,41 @@
+const products = [
+  {
+    id: 2,
+    name_ar: 'Poco M3 Dual SIM Poco Yellow 4GB RAM 64GB 4G LTE',
+    name_en: 'Poco M3 Dual SIM Poco Yellow 4GB RAM 64GB 4G LTE',
+    description_ar: null,
+    description_en: null,
+    isactive: true,
+    category_id: null,
+    subcategory_id: null,
+    shop_id: null,
+    sort_index: 999,
+    bestseller: false,
+    special: false,
+    created_at: '2021-06-30 13:41:58',
+    updated_at: '2021-06-30 13:41:58',
+    deleted_at: null,
+    coverimage:
+      'http://127.0.0.1:8000/storage/cdn/tNo552mVzSHfqseKdkPqRsS0u858jtmuWbRAgdeZ.webp',
+  },
+  {
+    id: 3,
+    name_ar: 'Poco M3 Dual SIM Pocosd',
+    name_en: 'Poco M3 Dual SIM Psd',
+    description_ar: null,
+    description_en: null,
+    isactive: true,
+    category_id: null,
+    subcategory_id: null,
+    shop_id: null,
+    sort_index: 999,
+    bestseller: false,
+    special: false,
+    created_at: '2021-06-30 13:41:58',
+    updated_at: '2021-06-30 13:41:58',
+    deleted_at: null,
+    coverimage:
+      'http://127.0.0.1:8000/storage/cdn/tNo552mVzSHfqseKdkPqRsS0u858jtmuWbRAgdeZ.webp',
+  },
+];
+export default products;

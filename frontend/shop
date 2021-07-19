@@ -1,0 +1,99 @@
+#Shop
+Create Shop
+Update Product
+#Create Shop
+TIP
+
+The following permission is needed 'shop.add'
+
+POST /api/v2/admin/shop
+Field	Type	Required
+shop_name_ar	String	✅
+shop_name_en	String	✅
+image	File	✅
+email	email	✅
+password	String	✅
+shop_trn	String	
+shop_mob	String	
+shop_website	String	
+open	1/0	
+booth	Number	
+Output
+{
+    "shop_coverImage": "cdn/VEyynoegoBGuGhVm0zDI1l3iuAPFDRWTEcESoKOG.webp",
+    "shop_name_ar": "MVP",
+    "shop_name_en": "MVP",
+    "shop_email": "abc@kmz.aes",
+    "last_login": "127.0.0.1",
+    "open": false,
+    "booth": 2,
+    "id": 2,
+    "owner": {
+        "email": "abc@kmz.aes",
+        "name": "faisal",
+        "typeofuser": "A",
+        "permissions": "shop.update|product.add|product.update|product.delete",
+        "shop_id": 2,
+        "id": 16,
+        "permissionslist": {
+            "shop": [
+                "update"
+            ],
+            "product": [
+                "add",
+                "update",
+                "delete"
+            ]
+        }
+    }
+} 
+#Update Product
+TIP
+
+The following permission is needed 'shop.update'
+
+POST /api/v2/admin/shop
+Field	Type	Required
+id	Uniq ID	✅
+shop_name_ar	String	✅
+shop_name_en	String	✅
+image	File	✅
+email	email	✅
+password	String	✅
+shop_trn	String	
+shop_email	Email	
+shop_mob	String	
+shop_website	String	
+open	1/0	
+booth	Number	
+Output
+
+{
+    "shop_coverImage": "cdn/VEyynoegoBGuGhVm0zDI1l3iuAPFDRWTEcESoKOG.webp",
+    "shop_name_ar": "MVP",
+    "shop_name_en": "MVP",
+    "shop_email": "abc@kmz.aes",
+    "last_login": "127.0.0.1",
+    "open": false,
+    "booth": 2,
+    "id": 2,
+    "owner": {
+        "email": "abc@kmz.aes",
+        "name": "faisal",
+        "typeofuser": "A",
+        "permissions": "shop.update|product.add|product.update|product.delete",
+        "shop_id": 2,
+        "id": 16,
+        "permissionslist": {
+            "shop": [
+                "update"
+            ],
+            "product": [
+                "add",
+                "update",
+                "delete"
+            ]
+        }
+    }
+}
+← 

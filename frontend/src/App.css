@@ -1,0 +1,22 @@
+#sidebar {
+  width: 280px;
+  height: 100vh;
+}
+#sidebar.active {
+  margin-left: -250px;
+}
+.error {
+  position: absolute;
+  color: red;
+  font-size: 0.6rem;
+}
+
+@media (max-width: 1130px) {
+  #sidebar {
+    height: 100%;
+    width: 100%;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+}

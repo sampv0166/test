@@ -1,0 +1,39 @@
+@import 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700';
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fafafa;
+}
+
+#sidebar {
+  /* don't forget to add all the previously mentioned styles here too */
+  background: #513858;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.link-button {
+  background-color: #513858;
+  border: 0.5px solid #88634d;
+  color: #ffffff;
+  padding-left: 30px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+  text-align: left;
+  width: 105%;
+}
+.link-button:hover {
+  background-color: #f1f5ef;
+  color: black;
+}
+.link-button:focus {
+  background: #f1f5ef;
+  top: 1px;
+  color: black;
+}
+.button-icon {
+  padding-right: 10px;
+}
+.button-text {
+  margin-top: 3px;
+}
