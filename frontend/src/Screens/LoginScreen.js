@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
-import { Formik, Form, useFormik } from 'formik';
+import { Formik, Form } from 'formik';
 
 import TextField from '../components/TextField';
 import * as Yup from 'yup';
-import { LinkContainer } from 'react-router-bootstrap';
-import axios from 'axios';
+import { userLogin } from '../api/authentication';
 
-const LoginScreen = ({ history }) => {
+import PropTypes from 'prop-types';
+
+const LoginScreen = ({ location, history, setUser }) => {
   const validate = Yup.object({
     email: Yup.string().email('Email is invalid').required('Email is required'),
     password: Yup.string()
       .min(6, 'Password must be at least 6 charaters')
       .required('Password is required'),
   });
+
+  const handleSubmit = async (values) => {
+    const userinfo = await userLogin(values);
+    setUser(userinfo);
+  };
 
   return (
     <Formik
@@ -22,30 +27,31 @@ const LoginScreen = ({ history }) => {
       }}
       validationSchema={validate}
       onSubmit={(values) => {
-        console.log('ok');
-        axios.post('/api/v2/public/login', { values }).then((res) => {
-          console.log(res);
-          console.log(res.data);
-          history.push('/product');
-        });
+        handleSubmit(values);
       }}
     >
       {(formik) => (
-        <div>
-          <h1 className="my-4 font-weight-bold .display-4">Sign Up</h1>
+        <div className="container w-25 border bg-white p-4 my-5 rounded login">
+          <div className='my-5'>
+            <h1 className="my-4 font-weight-bold .display-4">Log in</h1>
 
-          <Form>
-            <TextField label="Email" name="email" type="email" />
-            <TextField label="password" name="password" type="password" />
+            <Form>
+              <TextField label="Email" name="email" type="email" />
+              <TextField label="password" name="password" type="password" />
 
-            <button className="btn btn-dark mt-3" type="submit">
-              Login
-            </button>
-          </Form>
+              <button className="link-button text-md-center fs-3  w-100 btn btn-dark mt-3" type="submit">
+                Login
+              </button>
+            </Form>
+          </div>
         </div>
       )}
     </Formik>
   );
+};
+
+LoginScreen.propTypes = {
+  setUser: PropTypes.func.isRequired,
 };
 
 export default LoginScreen;

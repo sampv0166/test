@@ -2,7 +2,6 @@ import React from 'react';
 import * as Yup from 'yup';
 import TextField from '../components/TextField';
 import { Formik, Form } from 'formik';
-import { Row, Col, Button } from 'react-bootstrap';
 
 const AddNewSubCategoryScreen = () => {
   const validate = Yup.object({
@@ -22,31 +21,35 @@ const AddNewSubCategoryScreen = () => {
       validationSchema={validate}
     >
       {(formik) => (
-        <div className="mx-5 my-2 form-wrapper">
+        <div className="mx-5 my-2">
           <h3> Add New Sub Category</h3>
-          {console.log(formik.values)}
           <Form>
             <div className="my-4">
-              <Row>
-                <Col>
+              <div className="row g-3">
+                <div className="col-md-6">
                   <TextField label="Arabic Name" name="name_ar" type="text" />
-                </Col>
-                <Col>
+                </div>
+                <div className="col-md-6">
                   <TextField label="English Name" name="name_en" type="text" />
-                </Col>
-              </Row>
+                </div>
+              </div>
 
-              <Row>
-                <Col>
-                  <TextField label="Product Image" name="image" type="text" />
-                </Col>
-                <Col>
-                  <Button className="my-4 w-50 btn-dark">UPLOAD</Button>
-                </Col>
-              </Row>
+              <div className="row g-3">
+                <div className="col-md-12">
+                  <input
+                    className="my-4 form-control shadow-none rounded"
+                    label="Image"
+                    name="image"
+                    type="file"
+                    onChange={(e) =>
+                      formik.setFieldValue('image', e.target.files[0])
+                    }
+                  ></input>
+                </div>
+              </div>
 
               <button className="btn btn-dark mt-3" type="submit">
-                Save SubCategory
+                Save Sub Category
               </button>
             </div>
           </Form>

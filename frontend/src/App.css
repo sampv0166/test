@@ -1,22 +1,45 @@
-#sidebar {
-  width: 280px;
-  height: 100vh;
+@import 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700';
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fafafa;
 }
-#sidebar.active {
-  margin-left: -250px;
-}
+
 .error {
   position: absolute;
   color: red;
   font-size: 0.6rem;
 }
 
-@media (max-width: 1130px) {
-  #sidebar {
-    height: 100%;
+.global-min-width {
+  min-width: 339px;
+}
+
+.table-color {
+  color: #513858;
+}
+
+.edit-icon-color {
+  color: rgb(20, 174, 212);
+}
+.delete-icon-color {
+  color: rgb(194, 34, 34);
+}
+
+.side-icon-color {
+  color: rgb(245, 102, 197);
+}
+
+.set-cursor {
+  cursor: pointer;
+}
+
+.login {
+  min-width: 350px;
+}
+
+@media (max-width: 672px) {
+  #main-content {
     width: 100%;
-  }
-  #sidebar.active {
-    margin-left: 0;
   }
 }

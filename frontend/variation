@@ -22,7 +22,6 @@ color_name*	String	default NULL
 color_value*	String	default NULL
 keywords	String	default NULL
 Output
-
     {
         "id": 1,
         "product_id": "1",

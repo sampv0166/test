@@ -1,35 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
+import { deleteCategory, getCategory } from '../api/category';
+import MainScreenHeader from '../components/MainScreenHeader';
 
 const CategoryScreen = () => {
-  return (
-    <div className="d-flex flex-column h-100 container">
-      <div className="d-flex pt-4 fluid  mx-4 border-bottom bd-highlight h-100">
-        <div>
-          <h3> Categories</h3>
-        </div>
-        <div>
-          <div class="input-group mx-2">
-            <div class="form-outline">
-              <input type="search" id="form1" class="form-control" />
-            </div>
-            <i class="bi bi-search mx-2"></i>
-          </div>
-        </div>
-        <div className="ms-auto">
-          <LinkContainer className="list-group-item" to="/addnewcategory">
-            <div className=" btn link-button mb-2">
-              <span className="button-icon">
-                <i class="bi bi-person"></i>
-              </span>
-              <span className="button-text">Add New</span>
-            </div>
-          </LinkContainer>
-        </div>
-      </div>
+  const [Category, setCategory] = useState([]);
 
-      <div className="mt-4 mx-3 ">
-        <table className="table">
+  useEffect(() => {
+    const fetchCategory = async () => {
+      const { data } = await getCategory();
+      setCategory(data);
+    };
+    fetchCategory();
+  }, []);
+
+  const deleteCategoryHandler = async (id) => {
+    if (window.confirm('Are you sure')) {
+      deleteCategory(id);
+      console.log(id + ' product deleted');
+    }
+  };
+
+  return (
+    <div className="global-min-width">
+      <MainScreenHeader buttonLabel={'Add Category'} link="/addnewcategory" />
+      <div className="mt-4">
+        <table className="table table-striped table-sm table-color">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -41,18 +37,32 @@ const CategoryScreen = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>
-                <i className="bi bi-pencil" style={{ cursor: 'pointer' }}></i>
-              </td>
-              <td>
-                <i className="bi bi-trash" style={{ cursor: 'pointer' }}></i>
-              </td>
-            </tr>
+            {Category.map((category) => (
+              <tr key={category.id}>
+                <th scope="row">1</th>
+                <td>{category.name_en}</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>
+                  <LinkContainer
+                    style={{ cursor: 'pointer' }}
+                    to={`/category/${category.id}/edit`}
+                  >
+                    <button className="rounded">
+                      <i className="bi bi-pencil edit-icon-color set-cursor"></i>
+                    </button>
+                  </LinkContainer>
+                </td>
+                <td>
+                  <button
+                    className="rounded"
+                    onClick={() => deleteCategoryHandler(category.value)}
+                  >
+                    <i className="bi bi-trash delete-icon-color set-cursor"></i>
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

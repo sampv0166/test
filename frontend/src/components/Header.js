@@ -1,28 +1,48 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import currentUser from '../data/CurrentUser';
 
-const Header = () => {
+const Header = ({ history }) => {
+  const userInfoFromStorage = localStorage.getItem('userInfo')
+    ? JSON.parse(localStorage.getItem('userInfo'))
+    : null;
+
+  const logoutHandler = () => {
+    localStorage.removeItem('userInfo');
+    history.push('/');
+  };
+
   return (
-    <header style={{ backgroundColor: '#513858' }}>
+    <header
+      className="container-fluid my-2 rounded"
+      style={{
+        backgroundColor: '#342a35',
+        width: '100%',
+        minWidth: '339px',
+        border: '3px solid rgb(221, 178, 37)',
+      }}
+    >
       <Navbar
-        className="navbar border w-100"
+        className="navbar w-100"
         variant="dark"
         expand="lg"
         collapseOnSelect
       >
         <div className="container-fluid w-100">
           <LinkContainer to="/">
-            <Navbar.Brand className="mx-4 my-2">KhayamatAzan</Navbar.Brand>
+            <Navbar.Brand className="mx-4 my-2 fw-bold">
+              <h4 style={{ color: 'gold' }}>KhayamatAzan</h4>
+            </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              {currentUser.id ? (
-                <NavDropdown title={currentUser.name} id="username">
+              {userInfoFromStorage ? (
+                <NavDropdown title={userInfoFromStorage.name} id="username">
                   <LinkContainer to="/login">
-                    <NavDropdown.Item>Logoutk</NavDropdown.Item>
+                    <NavDropdown.Item onClick={logoutHandler}>
+                      Logout
+                    </NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>
               ) : (

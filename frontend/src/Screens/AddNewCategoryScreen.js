@@ -1,52 +1,78 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as Yup from 'yup';
 import TextField from '../components/TextField';
 import { Formik, Form } from 'formik';
-import { Row, Col, Button } from 'react-bootstrap';
+import { addCategory, getCategory } from '../api/category';
 
-const AddNewCategoryScreen = () => {
+const AddNewCategoryScreen = ({ history, heading }) => {
+  const [category, setCategory] = useState([]);
+
   const validate = Yup.object({
     name_ar: Yup.string().required('Required'),
     name_en: Yup.string().required('Required'),
     image: Yup.string().required('Required'),
     isactive: Yup.number(),
   });
+
+  useEffect(() => {
+    const fetchCategory = async () => {
+      const { data } = await getCategory();
+      setCategory(data[0]);
+    };
+
+    if (heading === 'Update Category') {
+      fetchCategory();
+    }
+  }, [heading]);
+
+  console.log(category);
+
   return (
     <Formik
+      enableReinitialize
       initialValues={{
-        name_ar: '',
-        name_en: '',
-        image: '',
-        isactive: '',
+        name_ar: category.name_ar || '',
+        name_en: category.name_en || '',
+        image: category.fullimageurl || '',
+        isactive: category.active || '',
       }}
       validationSchema={validate}
+      onSubmit={(values) => {
+        addCategory(values);
+        history.push('/category');
+      }}
     >
       {(formik) => (
-        <div className="mx-5 my-2 form-wrapper">
-          <h3> Add New Category</h3>
+        <div>
+          <h3>{heading}</h3>
           {console.log(formik.values)}
           <Form>
             <div className="my-4">
-              <Row>
-                <Col>
+              <div className="row g-3">
+                <div className="col-md-6">
                   <TextField label="Arabic Name" name="name_ar" type="text" />
-                </Col>
-                <Col>
+                </div>
+                <div className="col-md-6">
                   <TextField label="English Name" name="name_en" type="text" />
-                </Col>
-              </Row>
+                </div>
+              </div>
 
-              <Row>
-                <Col>
-                  <TextField label="Product Image" name="image" type="text" />
-                </Col>
-                <Col>
-                  <Button className="my-4 w-50 btn-dark">UPLOAD</Button>
-                </Col>
-              </Row>
+              <div className="row g-3">
+                <div className="col-md-12">
+                  <input
+                    className="my-4 form-control shadow-none rounded"
+                    label="Image"
+                    name="image"
+                    type="file"
+                    onChange={(e) =>
+                      formik.setFieldValue('image', e.target.files[0])
+                    }
+                  ></input>
+                </div>
+              </div>
 
               <button className="btn btn-dark mt-3" type="submit">
-                Save Category
+                {heading}
               </button>
             </div>
           </Form>

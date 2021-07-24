@@ -1,17 +1,26 @@
-import React from 'react';
-import { Field, ErrorMessage } from 'formik';
+import { Field, ErrorMessage, useFormikContext } from 'formik';
 
-function Select(props) {
-  const { label, name, options, ...rest } = props;
+const Select = (props) => {
+  const {label, name, options, ...rest } = props;
+
+  const { setFieldValue } = useFormikContext();
+ 
+
+  const handleChange = (evt) => {
+    const { value } = evt.target;
+    setFieldValue(name, value);
+  };
+
   return (
-    <div>
+    <div className="mb-3">
       <label htmlFor={name}>{label}</label>
       <Field
-        className="form-control rounded shadow-none"
+        className="form-select"
         as="select"
         id={name}
         name={name}
         {...rest}
+        onChange={handleChange}      
       >
         {options.map((option) => {
           return (
@@ -25,6 +34,6 @@ function Select(props) {
       <ErrorMessage component="div" name={name} className="error" />
     </div>
   );
-}
+};
 
 export default Select;

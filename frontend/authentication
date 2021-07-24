@@ -44,7 +44,6 @@ GET /api/v2/public/login/applewithtoken
 Field	Type	Required
 token	Google Auth Token	✅
 Output
-
 {
     "id": 13,
     "name": "faisal Kc",
@@ -62,7 +61,6 @@ GET /api/v2/public/myprofile
 Brarer token is required
 
 Output
-
 {
     "id": 1,
     "name": "admin",
