@@ -28,7 +28,8 @@ export const userLogin = async (values) => {
 
 export const getCurrentUserInfo = async () => {
   try {
-    const { data } = await axios.get('/api/v2/public/myprofile');
+    const  data  = await axios.get('/api/v2/public/myprofile');
+    console.log(data)
     return data;
   } catch (e) {
     console.log(e);

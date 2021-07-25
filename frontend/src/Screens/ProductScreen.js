@@ -23,14 +23,14 @@ const ProductScreen = ({ match, history }) => {
   }, []);
 
   return (
-    <div className="global-min-width">
+    <div className="">
       <MainScreenHeader
         buttonLabel={"Add New Product"}
         link={"/addnewproduct"}
       />
 
       <div className="mt-4">
-        <table className="table table-striped table-sm table-color border">
+        <table className="table table-sm table-responsive ">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -50,7 +50,7 @@ const ProductScreen = ({ match, history }) => {
                 <td>{product.name_ar}</td>
                 <td>{product.name_en}</td>
                 <td>
-                  <img style={{height:'200px' ,width:'200px' , objectFit:'contain'}} src={product.coverimage} alt="Not Available"></img>
+                  <img className='img-fluid img-thumbnail' style={{height:'150px' ,width:'150px' , objectFit:'contain'}} src={product.coverimage} alt="Not Available"></img>
                 </td>
                 <td>
                   <LinkContainer

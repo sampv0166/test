@@ -39,15 +39,7 @@ const Sidebar = () => {
             </span>
             <span className="button-text">Category</span>
           </div>
-        </LinkContainer>
-        <LinkContainer className="list-group-item" to="/subcategory">
-          <div className="link-button py-3 my-1 rounded text-nowrap">
-            <span className="button-icon">
-              <i className="bi bi-box-seam"></i>
-            </span>
-            <span className="button-text">Sub Category</span>
-          </div>
-        </LinkContainer>
+        </LinkContainer>       
       </Row>
     </div>
   );

@@ -71,7 +71,7 @@ const AddNewCategoryScreen = ({ history, heading }) => {
                 </div>
               </div>
 
-              <button className="btn btn-dark mt-3" type="submit">
+              <button className="btn btn-success mt-3" type="submit">
                 {heading}
               </button>
             </div>

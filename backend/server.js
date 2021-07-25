@@ -5,6 +5,7 @@ import products from './data/Products.js';
 import shops from './data/shop.js';
 import category2 from './data/category2.js';
 import variations from './data/variations.js'
+import shopInfo from './data/shopInfo.js';
 
 const app = express();
 app.use(express.json());
@@ -36,5 +37,10 @@ app.get('/api/v2/admin/getshop', (req, res) => {
 app.get('/api/v2/admin/getvariations', (req, res) => {
   res.json(variations);
 });
+
+app.get('/getshops', (req, res) => {
+  res.json(shopInfo);
+});
+
 
 app.listen(5000, console.log('server running'));

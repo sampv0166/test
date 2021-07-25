@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #f0eded;
+  background: white;
 }
 
 .error {
@@ -39,11 +39,18 @@ body {
 }
 
 .main-content {
-  background-color: #EEEEEE;
+  background-color: #ffff;
 }
 
 @media (max-width: 672px) {
   #main-content {
     width: 100%;
+  }
+}
+
+@media (max-width: 672px) {
+  #product-images {
+    width: 50px;
+    height: 50px;
   }
 }

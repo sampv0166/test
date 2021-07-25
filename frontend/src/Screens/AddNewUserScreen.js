@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import './User.css';
 import { userRegister } from '../api/authentication';
 
-const AddNewUserScreen = ({ history }) => {
+const AddNewUserScreen = ({ match, history, heading}) => {
   const validate = Yup.object({
     name: Yup.string()
       .min(1, 'Name must be atleast one character')
@@ -31,7 +31,7 @@ const AddNewUserScreen = ({ history }) => {
     >
       {(formik) => (
         <div className="mx-5 my-2">
-          <h3> Register</h3>
+          <h3> {heading}</h3>
           <Form>
             <div className="row g-3">
               <div className="col-md-6">
@@ -57,8 +57,8 @@ const AddNewUserScreen = ({ history }) => {
                 ></input>
               </div>
             </div>
-            <button className="btn btn-dark mt-3" type="submit">
-              Register
+            <button className="btn btn-success mt-3" type="submit">
+              {heading}
             </button>
           </Form>
         </div>

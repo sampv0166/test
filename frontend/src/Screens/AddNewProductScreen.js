@@ -84,7 +84,7 @@ const AddNewProductScreen = ({ match, history, heading, buttonLabel }) => {
       }}
     >
       {(formik) => (
-        <div className="">
+        <div className="my-4">
           <h3> {heading}</h3>
           {console.log(formik.values)}
           <Form>

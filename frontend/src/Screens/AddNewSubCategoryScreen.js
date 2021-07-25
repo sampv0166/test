@@ -48,7 +48,7 @@ const AddNewSubCategoryScreen = () => {
                 </div>
               </div>
 
-              <button className="btn btn-dark mt-3" type="submit">
+              <button className="btn btn-success mt-3" type="submit">
                 Save Sub Category
               </button>
             </div>

@@ -14,6 +14,7 @@ import AddNewSubCategoryScreen from "./Screens/AddNewSubCategoryScreen";
 import UserScreen from "./Screens/UserScreen";
 import ProductVariationScreen from "./Screens/ProductVariationScreen";
 import AddnewVariation from "./Screens/AddnewVariation";
+import ShopScreen from './Screens/ShopScreen'
 
 import useUserInfo from "./components/useToken";
 
@@ -26,18 +27,37 @@ function App() {
 
   return (
     <Router>
-      <div style={{ minWidth: "330px" }}>
+      <div className="global-min-width">
         <div className="container-fluid">
           <Header />
         </div>
 
-        <div className="row mx-3 w-100">
-          <div id="sidebar" className="col-3 rounded">
+        <div className="mx-2 row my-3 w-100 container-fluid">
+          <div id="sidebar" className="col-3 rounded  shadow-sm">
             <Sidebar />
           </div>
-          <div className="col-9 h-100 my-1 border-bottom shadow-sm" id="main-content">
-            <Route path="/user" component={UserScreen}></Route>
-            <Route path="/addnewuser" component={AddNewUserScreen}></Route>
+          <div
+            className="col-9 my-1 border rounded mx-3 shadow-lg"
+            id="main-content"
+          >
+            <Route exact path="/user" component={UserScreen}></Route>
+
+            <Route
+              exact
+              path="/addnewuser"
+              render={({ match }) => (
+                <AddNewUserScreen match={match} heading={`Register New User`} />
+              )}
+            ></Route>
+
+            <Route
+              exact
+              path="/user/:id/edit"
+              render={({ match }) => (
+                <AddNewUserScreen match={match} heading={`Update User`} />
+              )}
+            ></Route>
+
             <Route exact path="/product" component={ProductScreen}></Route>
             <Route
               path="/login"
@@ -88,7 +108,6 @@ function App() {
               )}
             ></Route>
 
-
             <Route path="/category" component={CategoryScreen} exact></Route>
             <Route
               path="/addnewcategory"
@@ -108,6 +127,16 @@ function App() {
               path="/addnewsubcategory"
               component={AddNewSubCategoryScreen}
             ></Route>
+
+            <Route
+              exact
+              path="/shop"
+              render={({ match }) => (
+                <ShopScreen match={match}/>
+              )}
+            ></Route>
+
+
           </div>
         </div>
       </div>
