@@ -1,0 +1,80 @@
+#Slider
+Add Slider
+Get Sliders
+#Add Slider
+POST /api/v2/admin/slider
+Field	Type	Required
+file	File	✅
+location	top/mid/bottom	✅
+shop_id	Uniq shop id	
+category_id	Uniq category id	
+products	Uniq category id	
+hasoffer	1/0/NULL	
+Output
+
+#Get Sliders
+GET /api/v2/admin/slider
+Output
+   [
+        {
+            "id": 1,
+            "url": "shops/1IqfVwGMcczI4ptzuQhxzqYMsZpvYPwiKW6Vz2Ot.jpg",
+            "location": "top",
+            "category_id": null,
+            "shop_id": null,
+            "hasoffer": false,
+            "products": null,
+            "fullurl": "http://127.0.0.1:8000/storage/shops/1IqfVwGMcczI4ptzuQhxzqYMsZpvYPwiKW6Vz2Ot.jpg"
+        },
+        {
+            "id": 2,
+            "url": "shops/TUcqbYbuJnuENwND6NFWY8FHN6MV6KsulnKP8n8H.jpg",
+            "location": "top",
+            "category_id": null,
+            "shop_id": null,
+            "hasoffer": false,
+            "products": null,
+            "fullurl": "http://127.0.0.1:8000/storage/shops/TUcqbYbuJnuENwND6NFWY8FHN6MV6KsulnKP8n8H.jpg"
+        },
+        {
+            "id": 3,
+            "url": "shops/en5cQB3jXkYoyaQ54Mfy9OajMRbVodj1ExZfAhAo.jpg",
+            "location": "mid",
+            "category_id": null,
+            "shop_id": null,
+            "hasoffer": false,
+            "products": null,
+            "fullurl": "http://127.0.0.1:8000/storage/shops/en5cQB3jXkYoyaQ54Mfy9OajMRbVodj1ExZfAhAo.jpg"
+        },
+        {
+            "id": 4,
+            "url": "shops/ZIxdWDxfTK5tVxGJB4Bqlz5SCFtw8ioyRDRGEuVQ.jpg",
+            "location": "bottom",
+            "category_id": null,
+            "shop_id": null,
+            "hasoffer": false,
+            "products": null,
+            "fullurl": "http://127.0.0.1:8000/storage/shops/ZIxdWDxfTK5tVxGJB4Bqlz5SCFtw8ioyRDRGEuVQ.jpg"
+        },
+        {
+            "id": 5,
+            "url": "shops/EGb0do9nJyoeKaBOG3J8tMqYQ0Wnpsb2N3zCHW8b.jpg",
+            "location": "bottom",
+            "category_id": null,
+            "shop_id": null,
+            "hasoffer": false,
+            "products": null,
+            "fullurl": "http://127.0.0.1:8000/storage/shops/EGb0do9nJyoeKaBOG3J8tMqYQ0Wnpsb2N3zCHW8b.jpg"
+        },
+        {
+            "id": 6,
+            "url": "shops/L9o8r89EByj8lU6UM7A04gh6cRZAWNnZVxT22PzN.jpg",
+            "location": "bottom",
+            "category_id": null,
+            "shop_id": null,
+            "hasoffer": false,
+            "products": null,
+            "fullurl": "http://127.0.0.1:8000/storage/shops/L9o8r89EByj8lU6UM7A04gh6cRZAWNnZVxT22PzN.jpg"
+        }
+    ]
+← 

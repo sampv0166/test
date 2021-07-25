@@ -12,19 +12,19 @@ body {
 }
 
 #sidebar {
-  /* don't forget to add all the previously mentioned styles here too */
-  background: #faf8f8;
+  background: #f0eded;
   color: #fff;
   transition: all 0.3s;
 }
+
 
 .link-button {
   box-shadow: 0px 0px 12px -2px;
   transition: 0.4s ease-in-out;
   border-radius: 10px;
-  background-color: #342a35;
-  border: 3px solid rgb(221, 178, 37);
-  color: #ffffff;
+  background-color: white;
+  border: px solid rgb(250, 250, 249);
+  color: #145e77;
   padding-left: 11px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #2f6627;
@@ -35,12 +35,12 @@ body {
 }
 .link-button:hover {
   background-color: #c54d85;
-  color: black;
+  color: rgb(8, 8, 8)
 }
 .link-button:focus {
   background: #f1f5ef;
   top: 1px;
-  color: black;
+  color: rgb(3, 3, 3);
 }
 
 .button-icon {

@@ -16,7 +16,7 @@ const products = [
     updated_at: '2021-06-30 13:41:58',
     deleted_at: null,
     coverimage:
-      'http://127.0.0.1:8000/storage/cdn/tNo552mVzSHfqseKdkPqRsS0u858jtmuWbRAgdeZ.webp',
+      'https://images-na.ssl-images-amazon.com/images/I/713qhtEOq5L._AC_UL320_SR320,320_.jpg',
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const products = [
     updated_at: '2021-06-30 13:41:58',
     deleted_at: null,
     coverimage:
-      'http://127.0.0.1:8000/storage/cdn/tNo552mVzSHfqseKdkPqRsS0u858jtmuWbRAgdeZ.webp',
+      'https://images-na.ssl-images-amazon.com/images/I/51hC6xxfemL._AC_UL200_SR200,200_.jpg',
   },
 ];
 export default products;

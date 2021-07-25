@@ -1,0 +1,90 @@
+Variation
+Add Variation
+Update Variation
+Delete Variation
+#Add Variation
+TIP
+
+The following permission is needed 'product.add'
+
+POST /api/v2/admin/variation
+Field	Type	Required
+name_ar	String	✅
+name_en	String	✅
+images[]	Array<File>	✅
+product_id	Uniq ID int ]	✅
+price	Amount	✅
+offerprice	Amount	default 0
+hasoffer	Tiny int[ 1/0 ]	default 0
+stocks	Number	default 0
+sku	String	default NULL
+color_name*	String	default NULL
+color_value*	String	default NULL
+keywords	String	default NULL
+Output
+    {
+        "id": 1,
+        "product_id": "1",
+        "price": 569,
+        "offerprice": 0,
+        "hasoffer": false,
+        "stocks": 0,
+        "size_value": null,
+        "color_value": "fd4900",
+        "color_name": "POCO yellow",
+        "urls": "cdn/I3hjgJPffzI2RC5cj7ubPylQBUXhJ8pRYTjONrse.webp,cdn/e2liUuWk6ZuHRh7X3ASrG51PsU0yqELjuqd3Ztkd.webp,cdn/fhTpmsIVmmDVwSm4wfzdlvUmAIUnvtvTXzn8lHGS.webp,cdn/ReLAcWwinoblkG3evRwtDnWkZS7nGaJWRofH2QQR.webp,cdn/NDSfhhe96YEWGTrt4HaYKfz5ZsQMOvPp6EboM4eW.webp",
+        "sku": "ABC-26",
+        "params": null,
+        "keywords": null,
+        "created_at": "2021-06-30 13:22:24",
+        "updated_at": "2021-06-30 15:33:58",
+        "fields": []
+    }
+#Update Variation
+TIP
+
+The following permission is needed 'product.update'
+
+POST /api/v2/admin/variation
+Field	Type	Required
+id	Uniq ID	✅
+name_ar	String	✅
+name_en	String	✅
+images[]	Array<File>	✅
+product_id	Uniq ID int ]	✅
+price	Amount	✅
+offerprice	Amount	default 0
+hasoffer	Tiny int[ 1/0 ]	default 0
+stocks	Number	default 0
+sku	String	default NULL
+color_name*	String	default NULL
+color_value*	String	default NULL
+keywords	String	default NULL
+Output
+
+{
+        "id": 1,
+        "product_id": "1",
+        "price": 569,
+        "offerprice": 0,
+        "hasoffer": false,
+        "stocks": 0,
+        "size_value": null,
+        "color_value": "fd4900",
+        "color_name": "POCO yellow",
+        "urls": "cdn/I3hjgJPffzI2RC5cj7ubPylQBUXhJ8pRYTjONrse.webp,cdn/e2liUuWk6ZuHRh7X3ASrG51PsU0yqELjuqd3Ztkd.webp,cdn/fhTpmsIVmmDVwSm4wfzdlvUmAIUnvtvTXzn8lHGS.webp,cdn/ReLAcWwinoblkG3evRwtDnWkZS7nGaJWRofH2QQR.webp,cdn/NDSfhhe96YEWGTrt4HaYKfz5ZsQMOvPp6EboM4eW.webp",
+        "sku": "ABC-26",
+        "params": null,
+        "keywords": null,
+        "created_at": "2021-06-30 13:22:24",
+        "updated_at": "2021-06-30 15:33:58",
+        "fields": []
+}
+#Delete Variation
+TIP
+
+The following permission is needed 'product.delete'
+
+DELETE /api/v2/admin/variation/{id}
+Field	Type	Required
+id	Uniq ID	✅

@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #fafafa;
+  background: #f0eded;
 }
 
 .error {
@@ -36,6 +36,10 @@ body {
 
 .login {
   min-width: 350px;
+}
+
+.main-content {
+  background-color: #EEEEEE;
 }
 
 @media (max-width: 672px) {

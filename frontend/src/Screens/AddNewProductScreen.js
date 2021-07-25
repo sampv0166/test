@@ -11,7 +11,7 @@ const AddNewProductScreen = ({ match, history, heading, buttonLabel }) => {
   const [products, setProducts] = useState([]);
   //const productId = match.params.id
 
-  console.log(match.params.id);
+  //console.log(match.params.id);
 
   const [category, setCategory] = useState([]);
   const [shops, setShops] = useState([]);
@@ -30,6 +30,7 @@ const AddNewProductScreen = ({ match, history, heading, buttonLabel }) => {
     special: Yup.number(),
     isactive: Yup.number(),
   });
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -195,7 +196,7 @@ const AddNewProductScreen = ({ match, history, heading, buttonLabel }) => {
               </Col>
             </div>
 
-            <button className="btn btn-dark mt-3" type="submit">
+            <button className="btn btn-success mt-3 my-2" type="submit">
               {buttonLabel}
             </button>
           </Form>
