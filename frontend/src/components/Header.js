@@ -31,7 +31,7 @@ const Header = ({ history }) => {
         <div className="container-fluid w-100">
           <LinkContainer to="/">
             <Navbar.Brand className="mx-4 my-2 fw-bold">
-              <h4 style={{ color: 'gold' }}>KhayamatAzan</h4>
+              <h4 style={{ color: 'gold' }}>KyamatZaman</h4>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -37,7 +37,14 @@ const ProductVariationScreen = () => {
     console.log('source: ', source);
 
     return source.map((photo) => {
-      return <img src={photo} alt="" key={photo} />;
+      return( 
+      <div className='border'>  
+        <img src={photo} alt="" key={photo}></img>
+        <button type="button" class="btn btn-primary">
+  <span class="badge badge-warning">4</span>
+</button>
+      </div> 
+      )
     });
   };
 
