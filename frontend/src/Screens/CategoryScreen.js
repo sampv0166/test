@@ -23,10 +23,12 @@ const CategoryScreen = () => {
 
   return (
     <div className="global-min-width">
-      <MainScreenHeader buttonLabel={'Add Category'} link="/addnewcategory" />
+      <div className="w-100">
+        <MainScreenHeader buttonLabel={'Add Category'} link="/addnewcategory" />
+      </div>
       <div className="mt-4">
-        <table className="table table-sm">
-          <thead>
+        <table className="table  table-sm">
+          <thead className=''>
             <tr>
               <th scope="col">#</th>
               <th scope="col">En Name</th>

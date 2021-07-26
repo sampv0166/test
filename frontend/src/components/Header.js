@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import useravatar from './images.png'
+import useravatar from './images.png';
 
 const Header = ({ history }) => {
   const userInfoFromStorage = localStorage.getItem('userInfo')
@@ -15,31 +15,44 @@ const Header = ({ history }) => {
 
   return (
     <header
-      className="container-fluid my-2 rounded border shadow"
+      className="container-fluid my-2 rounded"
       style={{
-        backgroundColor: '#F5F8FB',
+        backgroundColor: '#262b40',
         width: '100%',
         minWidth: '339px',
       }}
     >
       <Navbar
         className="navbar w-100"
-        variant="light"
+        variant="bg-dark"
         expand="lg"
         collapseOnSelect
       >
         <div className="container-fluid w-100">
           <LinkContainer to="/">
-            <Navbar.Brand className="mx-4 my-2 fw-bold">
-              <h4 style={{ color: '#262B40',fontFamily: 'Lucida Handwriting,Cursive' , fontWeight:'bolder' ,fontSize:'2rem'}}>KyamatZaman</h4>
+            <Navbar.Brand className=" my-2 fw-bold">
+              <h3
+                style={{
+                  color: 'gold',
+                  
+                  fontWeight:'bolder',
+                  fontSize: '2rem',
+                }}
+              >
+                KyamatZaman
+              </h3>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <img style={{height:'50px' ,width:'50px' , objectFit:'contain'}} src='https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png' alt=''  ></img>
+              <img
+                style={{ height: '50px', width: '50px', objectFit: 'contain' }}
+                src="https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png"
+                alt=""
+              ></img>
               {userInfoFromStorage ? (
-                <NavDropdown title={userInfoFromStorage.name} id="username">
+                <NavDropdown className='nav-item-color' title={userInfoFromStorage.name} id="username">
                   <LinkContainer to="/login">
                     <NavDropdown.Item onClick={logoutHandler}>
                       Logout

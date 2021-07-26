@@ -1,24 +1,24 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
-import AddNewUserScreen from "./Screens/AddNewUserScreen";
-import "./App.css";
-import ProductScreen from "./Screens/ProductScreen";
-import AddNewProductScreen from "./Screens/AddNewProductScreen";
-import LoginScreen from "./Screens/LoginScreen";
-import CategoryScreen from "./Screens/CategoryScreen";
-import AddNewCategoryScreen from "./Screens/AddNewCategoryScreen";
-import SubCategoryScreen from "./Screens/SubCategoryScreen";
-import AddNewSubCategoryScreen from "./Screens/AddNewSubCategoryScreen";
-import UserScreen from "./Screens/UserScreen";
-import ProductVariationScreen from "./Screens/ProductVariationScreen";
-import AddnewVariation from "./Screens/AddnewVariation";
-import ShopScreen from "./Screens/ShopScreen";
-import AddNewShopScreen from "./Screens/AddNewShopScreen";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import AddNewUserScreen from './Screens/AddNewUserScreen';
+import './App.css';
+import ProductScreen from './Screens/ProductScreen';
+import AddNewProductScreen from './Screens/AddNewProductScreen';
+import LoginScreen from './Screens/LoginScreen';
+import CategoryScreen from './Screens/CategoryScreen';
+import AddNewCategoryScreen from './Screens/AddNewCategoryScreen';
+import SubCategoryScreen from './Screens/SubCategoryScreen';
+import AddNewSubCategoryScreen from './Screens/AddNewSubCategoryScreen';
+import UserScreen from './Screens/UserScreen';
+import ProductVariationScreen from './Screens/ProductVariationScreen';
+import AddnewVariation from './Screens/AddnewVariation';
+import ShopScreen from './Screens/ShopScreen';
+import AddNewShopScreen from './Screens/AddNewShopScreen';
 
-import useUserInfo from "./components/useToken";
-import PermissionScreen from "./Screens/PermissionScreen";
+import useUserInfo from './components/useToken';
+import PermissionScreen from './Screens/PermissionScreen';
 
 function App() {
   const { user, setUser } = useUserInfo();
@@ -29,19 +29,17 @@ function App() {
 
   return (
     <Router>
-      <div className="global-min-width">
-        <div className="row container-fluid">
-          <Header />
-        </div>
-
-        <div className="row my-3 w-100 container-fluid">
-          <div id="sidebar" className="col-3 rounded  shadow-sm">
-            {user ? <Sidebar user={user} /> : ""}
+      <div className="w-100 container-fluid border shadow-sm">
+        <Header />
+      </div>
+      <div className="global-min-width row">
+        <div className="col border shadow my-2">
+          <div id="sidebar" className="col rounded w-100 shadow-sm mx-3">
+            {user ? <Sidebar user={user} /> : ''}
           </div>
-          <div
-            className="col-9 mx-2 border rounded  shadow-sm"
-            id="main-content"
-          >
+        </div>
+        <div className="col-9 my-2 w" id = 'wrapper'>
+          <div className="row w-100 border shadow h-100 mx-1" id="main-content">
             <Route
               exact
               path="/user"
@@ -51,7 +49,9 @@ function App() {
             <Route
               exact
               path="/permissions/:id"
-              render={({ match }) => <PermissionScreen match={match} user={user} />}
+              render={({ match }) => (
+                <PermissionScreen match={match} user={user} />
+              )}
             ></Route>
 
             <Route
@@ -146,13 +146,13 @@ function App() {
             <Route
               path="/addnewcategory"
               component={() => (
-                <AddNewCategoryScreen heading={"Add New Category"} />
+                <AddNewCategoryScreen heading={'Add New Category'} />
               )}
             ></Route>
             <Route
               path="/category/:id/edit"
               component={() => (
-                <AddNewCategoryScreen heading={"Update Category"} />
+                <AddNewCategoryScreen heading={'Update Category'} />
               )}
             ></Route>
 

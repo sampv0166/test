@@ -46,12 +46,34 @@ body {
 color: #8c539c;
 padding-bottom: 20px;
 }
+.header {
+  position:absolute;
+  margin-left: 25%; 
+}
+.nav-item-color {
+  color: white;
+}
 
 @media (max-width: 672px) {
   #main-content {
     width: 100%;
+    margin-left: 10px;
   }
 }
+@media (max-width: 767px) {
+  #wrapper {
+    width: 100%;
+    margin-left: 10px;
+  }
+}
+@media (min-width: 672px) {
+  #side-bar {
+    width: 100%;
+    margin-left: 10px;
+  }
+}
+
+
 
 @media (max-width: 672px) {
   #product-images {
