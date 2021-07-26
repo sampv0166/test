@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import * as Yup from 'yup';
-import TextField from '../components/TextField';
-import { Formik, Form } from 'formik';
-import { Col } from 'react-bootstrap';
-import Select from '../components/Select';
-import { addProduct, getProduct, updateProduct } from '../api/products';
-import { getCategory } from '../api/category';
-import { getshops } from '../api/shop';
+import React, { useEffect, useState } from "react";
+import * as Yup from "yup";
+import TextField from "../components/TextField";
+import { Formik, Form } from "formik";
+import { Col } from "react-bootstrap";
+import Select from "../components/Select";
+import { addProduct, getProduct, updateProduct } from "../api/products";
+import { getCategory } from "../api/category";
+import { getshops } from "../api/shop";
 const AddNewProductScreen = ({ match, history, heading, buttonLabel }) => {
   const [products, setProducts] = useState([]);
   //const productId = match.params.id
@@ -17,20 +17,19 @@ const AddNewProductScreen = ({ match, history, heading, buttonLabel }) => {
   const [shops, setShops] = useState([]);
 
   const validate = Yup.object({
-    name_ar: Yup.string().required('Required'),
-    name_en: Yup.string().required('Required'),
-    image: Yup.string().required('Required'),
-    shop_id: Yup.string().required('Required'),
-    description_ar: Yup.string().required('Required'),
-    description_en: Yup.string().required('Required'),
-    category_id: Yup.string().required('Required'),
-    subcategory_id: Yup.string().required('Required'),
-    sort_index: Yup.string().required('Required'),
+    name_ar: Yup.string().required("Required"),
+    name_en: Yup.string().required("Required"),
+    image: Yup.string().required("Required"),
+    shop_id: Yup.string().required("Required"),
+    description_ar: Yup.string().required("Required"),
+    description_en: Yup.string().required("Required"),
+    category_id: Yup.string().required("Required"),
+    subcategory_id: Yup.string().required("Required"),
+    sort_index: Yup.string().required("Required"),
     bestseller: Yup.number(),
     special: Yup.number(),
     isactive: Yup.number(),
   });
-
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -50,8 +49,8 @@ const AddNewProductScreen = ({ match, history, heading, buttonLabel }) => {
     fetcShops();
     fetCategory();
 
-    if (heading === 'Update Product') {
-      console.log('ok');
+    if (heading === "Update Product") {
+      console.log("ok");
       fetchProducts();
     }
   }, [heading]);
@@ -60,32 +59,32 @@ const AddNewProductScreen = ({ match, history, heading, buttonLabel }) => {
     <Formik
       enableReinitialize
       initialValues={{
-        name_ar: products.name_ar || '',
-        name_en: products.name_en || '',
-        image: products.image || '',
-        shop_id: products.shop_id || '',
-        description_ar: products.description_ar || '',
-        description_en: products.description_en || '',
-        category_id: products.category_id || '',
-        subcategory_id: products.subcategory_id || '',
-        sort_index: products.sort_index || '',
-        bestseller: products.bestseller || '',
-        special: products.special || '',
-        isactive: products.isactive || '',
+        name_ar: products.name_ar || "",
+        name_en: products.name_en || "",
+        image: products.image || "",
+        shop_id: products.shop_id || "",
+        description_ar: products.description_ar || "",
+        description_en: products.description_en || "",
+        category_id: products.category_id || "",
+        subcategory_id: products.subcategory_id || "",
+        sort_index: products.sort_index || "",
+        bestseller: products.bestseller || "",
+        special: products.special || "",
+        isactive: products.isactive || "",
       }}
       validationSchema={validate}
       onSubmit={(values) => {
-        if (heading === 'Update Product') {
+        if (heading === "Update Product") {
           updateProduct(values);
         } else {
           addProduct(values);
         }
-        history.push('/product');
+        history.push("/product");
       }}
     >
       {(formik) => (
         <div className="my-4">
-          <h3> {heading}</h3>
+          <h3 className="main-heading-global"> {heading}</h3>
           {console.log(formik.values)}
           <Form>
             <div className="row g-3">
@@ -138,7 +137,7 @@ const AddNewProductScreen = ({ match, history, heading, buttonLabel }) => {
                   name="image"
                   type="file"
                   onChange={(e) =>
-                    formik.setFieldValue('image', e.target.files[0])
+                    formik.setFieldValue("image", e.target.files[0])
                   }
                 ></input>
               </div>
@@ -158,9 +157,9 @@ const AddNewProductScreen = ({ match, history, heading, buttonLabel }) => {
                   label="Status"
                   name="isactive"
                   options={[
-                    { key: 'Select Product Status', value: '' },
-                    { key: 'Active', value: '1' },
-                    { key: 'Disabled', value: '0' },
+                    { key: "Select Product Status", value: "" },
+                    { key: "Active", value: "1" },
+                    { key: "Disabled", value: "0" },
                   ]}
                 ></Select>
               </div>
@@ -168,28 +167,30 @@ const AddNewProductScreen = ({ match, history, heading, buttonLabel }) => {
 
             <div className="row g-3">
               <div className="col-md-6">
-                <Select
-                  control="select"
-                  label="Best Seller"
-                  name="bestseller"
-                  options={[
-                    { key: 'Select An Option', value: '' },
-                    { key: 'Yes', value: 1 },
-                    { key: 'No', value: 0 },
-                  ]}
-                ></Select>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Best Seller
+                  </label>
+                </div>
               </div>
               <div className="col-md-6">
-                <Select
-                  control="select"
-                  label="Special"
-                  name="special"
-                  options={[
-                    { key: 'Select An Option', value: '' },
-                    { key: 'Yes', value: 1 },
-                    { key: 'No', value: 0 },
-                  ]}
-                ></Select>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Special
+                  </label>
+                </div>
               </div>
               <Col>
                 <TextField label="Sort Index" name="sort_index" type="number" />

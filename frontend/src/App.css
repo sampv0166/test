@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: white;
+  background-color: #ffff;
 }
 
 .error {
@@ -40,6 +40,11 @@ body {
 
 .main-content {
   background-color: #ffff;
+}
+
+.main-heading-global {
+color: #8c539c;
+padding-bottom: 20px;
 }
 
 @media (max-width: 672px) {

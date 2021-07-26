@@ -25,7 +25,7 @@ const CategoryScreen = () => {
     <div className="global-min-width">
       <MainScreenHeader buttonLabel={'Add Category'} link="/addnewcategory" />
       <div className="mt-4">
-        <table className="table table-striped table-sm table-color">
+        <table className="table table-sm">
           <thead>
             <tr>
               <th scope="col">#</th>

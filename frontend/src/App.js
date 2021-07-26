@@ -14,7 +14,8 @@ import AddNewSubCategoryScreen from "./Screens/AddNewSubCategoryScreen";
 import UserScreen from "./Screens/UserScreen";
 import ProductVariationScreen from "./Screens/ProductVariationScreen";
 import AddnewVariation from "./Screens/AddnewVariation";
-import ShopScreen from './Screens/ShopScreen'
+import ShopScreen from "./Screens/ShopScreen";
+import AddNewShopScreen from "./Screens/AddNewShopScreen";
 
 import useUserInfo from "./components/useToken";
 
@@ -24,20 +25,19 @@ function App() {
   if (!user) {
     return <LoginScreen setUser={setUser} />;
   }
-
   return (
     <Router>
       <div className="global-min-width">
-        <div className="container-fluid">
+        <div className="row container-fluid">
           <Header />
         </div>
 
-        <div className="mx-2 row my-3 w-100 container-fluid">
+        <div className="row my-3 w-100 container-fluid">
           <div id="sidebar" className="col-3 rounded  shadow-sm">
             <Sidebar />
           </div>
           <div
-            className="col-9 my-1 border rounded mx-3 shadow-lg"
+            className="col-9 mx-2 border rounded  shadow-sm"
             id="main-content"
           >
             <Route exact path="/user" component={UserScreen}></Route>
@@ -62,6 +62,21 @@ function App() {
             <Route
               path="/login"
               render={() => <Redirect to="/product" />}
+            ></Route>
+
+            <Route
+              exact
+              path="/addnewshop"
+              render={({ match }) => (
+                <AddNewShopScreen match={match} heading={`Register New Shop`} />
+              )}
+            ></Route>
+ <Route
+              exact
+              path="/shop/:id/edit"
+              render={({ match }) => (
+                <AddNewShopScreen match={match} heading={`Update Shop`} />
+              )}
             ></Route>
 
             <Route
@@ -131,12 +146,8 @@ function App() {
             <Route
               exact
               path="/shop"
-              render={({ match }) => (
-                <ShopScreen match={match}/>
-              )}
+              render={({ match }) => <ShopScreen match={match} />}
             ></Route>
-
-
           </div>
         </div>
       </div>

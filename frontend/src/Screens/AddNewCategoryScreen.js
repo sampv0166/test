@@ -44,7 +44,7 @@ const AddNewCategoryScreen = ({ history, heading }) => {
     >
       {(formik) => (
         <div>
-          <h3>{heading}</h3>
+          <h3 className='main-heading-global'>{heading}</h3>
           {console.log(formik.values)}
           <Form>
             <div className="my-4">

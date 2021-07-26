@@ -124,9 +124,9 @@ const ProductVariationScreen = ({match ,history,heading}) => {
         {(formik) => (
           <div className="my-4">
             {heading == 'Update Variation' ? (
-              <h3 className="pb-3 border-bottom">Update Product Variation</h3>
+              <h3 className="pb-3 border-bottom main-heading-global">Update Product Variation</h3>
             ) : (
-              <h3 className="pb-3 border-bottom">Add New Product Variation</h3>
+              <h3 className="pb-3 border-bottom main-heading-global">Add New Product Variation</h3>
             )}
 
             {console.log(formik.values)}

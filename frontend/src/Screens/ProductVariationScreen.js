@@ -23,15 +23,16 @@ const ProductVariationScreen = ({match}) => {
         buttonLabel={'Add New Variation'}
         link={`/addnewproductvariation/${productId}`}
       />
-      <h3>Product Variations</h3>
       <div className="my-5">
-        <table className="table table-striped table-sm table-color border">
+        <table className="table table-sm">
           <thead>
             <tr>
               <th scope="col">#</th>
               <th scope="col">price</th>
               <th scope="col">offerprice</th>
               <th scope="col">color</th>
+              <th scope="col">stock</th>
+              <th scope="col">SKU</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
@@ -43,6 +44,8 @@ const ProductVariationScreen = ({match}) => {
                 <td>{productVariation.price}</td>
                 <td>{productVariation.offerprice}</td>
                 <td>{productVariation.color_name}</td>
+                <td>{productVariation.stock}</td>
+                <td>{productVariation.sku}</td>
                 <td>
                   <LinkContainer
                     style={{ cursor: 'pointer' }}

@@ -8,7 +8,7 @@ const Sidebar = () => {
     <div className="w-100">
       <Row>
         <LinkContainer  to="/user">
-          <div className="link-button py-3 my-1 rounded">
+          <div className="link-button py-3 my-3 mx-2 rounded ">
             <span className="button-icon">
               <i className="bi bi-person"></i>
             </span>
@@ -17,7 +17,7 @@ const Sidebar = () => {
         </LinkContainer>
 
         <LinkContainer className="list-group-item" to="/shop">
-          <div className="link-button py-3 my-1 rounded">
+          <div className="link-button py-3 my-3 mx-2 rounded">
             <span className="button-icon">
               <i className="bi bi-shop"></i>
             </span>
@@ -25,7 +25,7 @@ const Sidebar = () => {
           </div>
         </LinkContainer>
         <LinkContainer className="list-group-item" to="/product">
-          <div className="link-button py-3 my-1 rounded">
+          <div className="link-button py-3 my-3 mx-2 rounded">
             <span className="button-icon">
               <i className="bi bi-box "></i>
             </span>
@@ -33,7 +33,7 @@ const Sidebar = () => {
           </div>
         </LinkContainer>
         <LinkContainer className="list-group-item" to="/category">
-          <div className="link-button py-3 my-1 rounded">
+          <div className="link-button py-3 my-3 mx-2 rounded">
             <span className="button-icon">
               <i className="bi bi-box-seam"></i>
             </span>
