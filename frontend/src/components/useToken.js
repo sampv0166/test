@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function useUserInfo() {
   const getUser = () => {
-    const userInfoFromStorage = localStorage.getItem('userInfo')
-      ? JSON.parse(localStorage.getItem('userInfo'))
+    const userInfoFromStorage = localStorage.getItem("userInfo")
+      ? JSON.parse(localStorage.getItem("userInfo"))
       : null;
     return userInfoFromStorage;
   };
@@ -11,13 +11,14 @@ export default function useUserInfo() {
   const [user, setUser] = useState(getUser());
 
   const saveUser = (userInfo) => {
-    localStorage.setItem('userInfo', JSON.stringify(userInfo));
+    if (userInfo.success) {
+      localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    }
     setUser(userInfo);
   };
 
-
   return {
     setUser: saveUser,
-    user
-  }
+    user,
+  };
 }

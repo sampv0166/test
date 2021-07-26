@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { LinkContainer } from "react-router-bootstrap";
-import { getCurrentUserInfo } from "../api/authentication";
+import { getUsers } from "../api/users";
 import MainScreenHeader from "../components/MainScreenHeader";
 
-const UserScreen = () => {
+const UserScreen = ({user}) => {
   const [users, setUser] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const { data } = await getCurrentUserInfo();
+      const {data} = await getUsers(user.success.token);
       setUser(data);
     };
     fetchUsers();
@@ -37,6 +37,7 @@ const UserScreen = () => {
               <th scope="col">Image</th>
               <th scope="col"></th>
               <th scope="col"></th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -58,6 +59,14 @@ const UserScreen = () => {
                     alt="Not Available"
                   ></img>
                 </td>
+                <td>
+                    <LinkContainer
+                      style={{ cursor: "pointer" }}
+                      to={`/permissions/${user.id}`}
+                    >
+                      <button className="rounded">Permissions</button>
+                    </LinkContainer>
+                  </td>
                 <td>
                   <LinkContainer
                     style={{ cursor: "pointer" }}

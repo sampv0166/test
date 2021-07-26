@@ -9,9 +9,6 @@ import { getCategory } from "../api/category";
 import { getshops } from "../api/shop";
 const AddNewProductScreen = ({ match, history, heading, buttonLabel }) => {
   const [products, setProducts] = useState([]);
-  //const productId = match.params.id
-
-  //console.log(match.params.id);
 
   const [category, setCategory] = useState([]);
   const [shops, setShops] = useState([]);

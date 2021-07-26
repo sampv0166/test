@@ -17,7 +17,7 @@ const Header = ({ history }) => {
     <header
       className="container-fluid my-2 rounded border shadow"
       style={{
-        backgroundColor: '#fff',
+        backgroundColor: '#F5F8FB',
         width: '100%',
         minWidth: '339px',
       }}
@@ -31,7 +31,7 @@ const Header = ({ history }) => {
         <div className="container-fluid w-100">
           <LinkContainer to="/">
             <Navbar.Brand className="mx-4 my-2 fw-bold">
-              <h4 style={{ color: '#4FD2FC',fontFamily: 'Lucida Handwriting,Cursive' , fontWeight:'bolder' ,fontSize:'2rem'}}>KyamatZaman</h4>
+              <h4 style={{ color: '#262B40',fontFamily: 'Lucida Handwriting,Cursive' , fontWeight:'bolder' ,fontSize:'2rem'}}>KyamatZaman</h4>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

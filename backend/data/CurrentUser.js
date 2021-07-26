@@ -25,6 +25,7 @@ const currentUser = [
     permissions: "permission.add|permission.update",
     permissionslist: {
       permission: ["add", "update"],
+      products:[]
     },
   },
 ];

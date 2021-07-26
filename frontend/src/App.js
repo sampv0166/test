@@ -18,6 +18,7 @@ import ShopScreen from "./Screens/ShopScreen";
 import AddNewShopScreen from "./Screens/AddNewShopScreen";
 
 import useUserInfo from "./components/useToken";
+import PermissionScreen from "./Screens/PermissionScreen";
 
 function App() {
   const { user, setUser } = useUserInfo();
@@ -25,6 +26,7 @@ function App() {
   if (!user) {
     return <LoginScreen setUser={setUser} />;
   }
+
   return (
     <Router>
       <div className="global-min-width">
@@ -34,13 +36,23 @@ function App() {
 
         <div className="row my-3 w-100 container-fluid">
           <div id="sidebar" className="col-3 rounded  shadow-sm">
-            <Sidebar />
+            {user ? <Sidebar user={user} /> : ""}
           </div>
           <div
             className="col-9 mx-2 border rounded  shadow-sm"
             id="main-content"
           >
-            <Route exact path="/user" component={UserScreen}></Route>
+            <Route
+              exact
+              path="/user"
+              render={({ match }) => <UserScreen match={match} user={user} />}
+            ></Route>
+
+            <Route
+              exact
+              path="/permissions/:id"
+              render={({ match }) => <PermissionScreen match={match} user={user} />}
+            ></Route>
 
             <Route
               exact
@@ -58,7 +70,14 @@ function App() {
               )}
             ></Route>
 
-            <Route exact path="/product" component={ProductScreen}></Route>
+            <Route
+              exact
+              path="/product"
+              render={({ match }) => (
+                <ProductScreen match={match} user={user} />
+              )}
+            ></Route>
+
             <Route
               path="/login"
               render={() => <Redirect to="/product" />}
@@ -71,7 +90,7 @@ function App() {
                 <AddNewShopScreen match={match} heading={`Register New Shop`} />
               )}
             ></Route>
- <Route
+            <Route
               exact
               path="/shop/:id/edit"
               render={({ match }) => (
