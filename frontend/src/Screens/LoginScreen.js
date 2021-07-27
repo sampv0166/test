@@ -1,13 +1,12 @@
 import { Formik, Form } from "formik";
-
 import TextField from "../components/TextField";
 import * as Yup from "yup";
 import { userLogin } from "../api/authentication";
-
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
 
 const LoginScreen = ({ location, history, setUser }) => {
   const [currentUser, setCurrentUser] = useState([]);
@@ -24,6 +23,8 @@ const LoginScreen = ({ location, history, setUser }) => {
     setUser(userinfo);
     setCurrentUser(userinfo);
   };
+
+  //const redirect = location.search ? location.search.split('=')[1] : '/'
 
   return (
     <Formik
@@ -52,12 +53,15 @@ const LoginScreen = ({ location, history, setUser }) => {
               >
                 Login
               </button>
+        
               {/*!currentUser.success  ? <div className='bg-danger rounded my-3'>wrong credentials</div> : ""*/}
             </Form>
           </div>
           <Row className="py-3">
             <Col>
-              <a href="/addnewuser">Register</a>
+            <button>
+            <a href='/addnewuser' >register</a>
+            </button>
             </Col>
           </Row>
         </div>

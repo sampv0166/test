@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import useravatar from './images.png';
+
 
 const Header = ({ history }) => {
   const userInfoFromStorage = localStorage.getItem('userInfo')
@@ -20,20 +20,21 @@ const Header = ({ history }) => {
         backgroundColor: '#262b40',
         width: '100%',
         minWidth: '339px',
+        color:'white'
       }}
     >
       <Navbar
         className="navbar w-100"
-        variant="bg-dark"
+  
         expand="lg"
-        collapseOnSelect
+          
       >
         <div className="container-fluid w-100">
           <LinkContainer to="/">
             <Navbar.Brand className=" my-2 fw-bold">
               <h3
                 style={{
-                  color: 'gold',
+                  color: 'white',
                   
                   fontWeight:'bolder',
                   fontSize: '2rem',
@@ -45,15 +46,15 @@ const Header = ({ history }) => {
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
+            <Nav className="ms-auto text">
               <img
                 style={{ height: '50px', width: '50px', objectFit: 'contain' }}
                 src="https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png"
                 alt=""
               ></img>
               {userInfoFromStorage ? (
-                <NavDropdown className='nav-item-color' title={userInfoFromStorage.name} id="username">
-                  <LinkContainer to="/login">
+                <NavDropdown className='' title={userInfoFromStorage.name} id="username">
+                  <LinkContainer className='' to="/login">
                     <NavDropdown.Item onClick={logoutHandler}>
                       Logout
                     </NavDropdown.Item>

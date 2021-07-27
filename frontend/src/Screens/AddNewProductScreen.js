@@ -82,7 +82,7 @@ const AddNewProductScreen = ({ match, history, heading, buttonLabel }) => {
       {(formik) => (
         <div className="my-4">
           <h3 className="main-heading-global"> {heading}</h3>
-          {console.log(formik.values)}
+      
           <Form>
             <div className="row g-3">
               <div className="col-md-6">

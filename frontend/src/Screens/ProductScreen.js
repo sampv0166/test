@@ -23,7 +23,8 @@ const ProductScreen = ({ match, history, user }) => {
 
   return (
     <div className="">
-      {user.user.permissionslist.product.find(
+      {user.user.permissionslist.length > 0 &&
+      user.user.permissionslist.product.find(
         (permission) => permission === "add"
       ) ? (
         <MainScreenHeader
@@ -67,7 +68,8 @@ const ProductScreen = ({ match, history, user }) => {
                   ></img>
                 </td>
 
-                {user.user.permissionslist.variation ? (
+                {user.user.permissionslist.length > 0 &&
+                user.user.permissionslist.variation ? (
                   <td>
                     <LinkContainer
                       style={{ cursor: "pointer" }}
@@ -80,7 +82,8 @@ const ProductScreen = ({ match, history, user }) => {
                   ""
                 )}
 
-                {user.user.permissionslist.product.find(
+                {user.user.permissionslist.length > 0 &&
+                user.user.permissionslist.product.find(
                   (permission) => permission === "update"
                 ) ? (
                   <td>
@@ -97,7 +100,8 @@ const ProductScreen = ({ match, history, user }) => {
                   ""
                 )}
 
-                {user.user.permissionslist.product.find(
+                {user.user.permissionslist.length > 0 &&
+                user.user.permissionslist.product.find(
                   (permission) => permission === "delete"
                 ) ? (
                   <td>

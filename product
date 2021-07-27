@@ -22,6 +22,7 @@ sort_index	Uniq ID	*ADMIN
 bestseller	Tiny int[ 1/0 ]	*ADMIN
 special	Tiny int[ 1/0 ]	*ADMIN
 isactive	Tiny int[ 1/0 ]	*ADMIN
+
 Output
 {
     "id": 2,

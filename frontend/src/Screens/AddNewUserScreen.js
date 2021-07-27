@@ -30,7 +30,7 @@ const AddNewUserScreen = ({ match, history, heading}) => {
       }}
     >
       {(formik) => (
-        <div className="mx-5 my-2">
+        <div className="my-2">
           <h3 className='main-heading-global'> {heading}</h3>
           <Form>
             <div className="row g-3">

@@ -1,24 +1,25 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import AddNewUserScreen from './Screens/AddNewUserScreen';
-import './App.css';
-import ProductScreen from './Screens/ProductScreen';
-import AddNewProductScreen from './Screens/AddNewProductScreen';
-import LoginScreen from './Screens/LoginScreen';
-import CategoryScreen from './Screens/CategoryScreen';
-import AddNewCategoryScreen from './Screens/AddNewCategoryScreen';
-import SubCategoryScreen from './Screens/SubCategoryScreen';
-import AddNewSubCategoryScreen from './Screens/AddNewSubCategoryScreen';
-import UserScreen from './Screens/UserScreen';
-import ProductVariationScreen from './Screens/ProductVariationScreen';
-import AddnewVariation from './Screens/AddnewVariation';
-import ShopScreen from './Screens/ShopScreen';
-import AddNewShopScreen from './Screens/AddNewShopScreen';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import AddNewUserScreen from "./Screens/AddNewUserScreen";
+import "./App.css";
+import ProductScreen from "./Screens/ProductScreen";
+import AddNewProductScreen from "./Screens/AddNewProductScreen";
+import LoginScreen from "./Screens/LoginScreen";
+import CategoryScreen from "./Screens/CategoryScreen";
+import AddNewCategoryScreen from "./Screens/AddNewCategoryScreen";
+import SubCategoryScreen from "./Screens/SubCategoryScreen";
+import AddNewSubCategoryScreen from "./Screens/AddNewSubCategoryScreen";
+import UserScreen from "./Screens/UserScreen";
+import ProductVariationScreen from "./Screens/ProductVariationScreen";
+import AddnewVariation from "./Screens/AddnewVariation";
+import ShopScreen from "./Screens/ShopScreen";
+import AddNewShopScreen from "./Screens/AddNewShopScreen";
 
-import useUserInfo from './components/useToken';
-import PermissionScreen from './Screens/PermissionScreen';
+import useUserInfo from "./components/useToken";
+import PermissionScreen from "./Screens/PermissionScreen";
+import histor from "../src/Screens/history";
 
 function App() {
   const { user, setUser } = useUserInfo();
@@ -35,10 +36,10 @@ function App() {
       <div className="global-min-width row">
         <div className="col border shadow my-2">
           <div id="sidebar" className="col rounded w-100 shadow-sm mx-3">
-            {user ? <Sidebar user={user} /> : ''}
+            {user ? <Sidebar user={user} /> : ""}
           </div>
         </div>
-        <div className="col-9 my-2 w" id = 'wrapper'>
+        <div className="col-9 my-2 w" id="wrapper">
           <div className="row w-100 border shadow h-100 mx-1" id="main-content">
             <Route
               exact
@@ -78,9 +79,14 @@ function App() {
               )}
             ></Route>
 
-            <Route
+            {/* <Route
               path="/login"
               render={() => <Redirect to="/product" />}
+           ></Route> */}
+
+            <Route
+              path="/login"
+              render={(match) => (<LoginScreen/>)}
             ></Route>
 
             <Route
@@ -146,13 +152,13 @@ function App() {
             <Route
               path="/addnewcategory"
               component={() => (
-                <AddNewCategoryScreen heading={'Add New Category'} />
+                <AddNewCategoryScreen heading={"Add New Category"} />
               )}
             ></Route>
             <Route
               path="/category/:id/edit"
               component={() => (
-                <AddNewCategoryScreen heading={'Update Category'} />
+                <AddNewCategoryScreen heading={"Update Category"} />
               )}
             ></Route>
 

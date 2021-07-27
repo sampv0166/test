@@ -12,6 +12,7 @@ export const userRegister = ({ values }) => {
   }
 };
 
+
 //#Login
 //POST /api/v2/public/login
 
@@ -23,7 +24,6 @@ export const userLogin = async (email,password) => {
       'Content-Type': 'application/json',
     },
   }
-  
     const { data } = await axios.post('https://khaymatapi.mvp-apps.ae/api/v2/public/login', { email, password },
     config);
     return data;
